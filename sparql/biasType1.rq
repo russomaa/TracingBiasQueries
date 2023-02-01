@@ -1,4 +1,5 @@
-SELECT ?relation ?tail (COUNT(*) AS ?filteredTripleCount) (SAMPLE(?tripleCount) AS ?tripleCount) (xsd:float((COUNT(*)) / (xsd:float(?tripleCount))) AS ?representation) WHERE {
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?relation ?tail (COUNT(*) AS ?filteredTripleCount) ?tripleCount (xsd:float((COUNT(*)) / (xsd:float(?tripleCount))) AS ?representation) WHERE {
   {
     SELECT ?relation (COUNT(*) AS ?tripleCount) WHERE { ?s ?relation ?o. }
     GROUP BY ?relation

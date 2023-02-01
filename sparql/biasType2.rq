@@ -1,6 +1,7 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?relation ?option ?headEntities (COUNT(DISTINCT ?h) AS ?headEntitiesForOption) ((COUNT(DISTINCT ?h) / xsd:float(?headEntities)) AS ?optionRepresented) WHERE {
   {
-    SELECT ?relation (COUNT(DISTINCT ?head) AS ?headEntities) WHERE { ?head ?relation ?tail . }
+    SELECT ?relation (COUNT(DISTINCT ?head) AS ?headEntities) WHERE { ?head ?relation ?tail . } GROUP BY ?relation
   }
   
   ?h ?relation ?option.
