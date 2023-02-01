@@ -1,0 +1,9 @@
+SELECT ?relation ?option ?headEntities (COUNT(DISTINCT ?h) AS ?headEntitiesForOption) ((COUNT(DISTINCT ?h) / xsd:float(?headEntities)) AS ?optionRepresented) WHERE {
+  {
+    SELECT ?relation (COUNT(DISTINCT ?head) AS ?headEntities) WHERE { ?head ?relation ?tail . }
+  }
+  
+  ?h ?relation ?option.
+}
+GROUP BY ?relation ?option ?headEntities
+HAVING ((COUNT(DISTINCT ?h) / xsd:float(?headEntities)) > 0.5)

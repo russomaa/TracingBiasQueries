@@ -1,0 +1,31 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bias: <http://bias.org/vocab/> .
+@base <http://bias.org/> .
+
+ 
+<DatasetMapping>
+  a rr:TriplesMap;
+
+  rml:logicalSource [
+	rml:source "/Users/sammys/Development/Bachelor-Arbeit/BiasLPBenchmark/data/YAGO3-10/CSVFiles/merged.csv";
+    rml:referenceFormulation ql:CSV
+  ];
+
+  rr:subjectMap [
+  rr:template "http://bias.org/entity/{head}";
+  ];
+  
+  rr:predicateObjectMap [
+	  rr:predicateMap [
+  rr:template "http://bias.org/vocab/{predicate}";
+  ];
+	  rr:objectMap [
+		  rr:template "http://bias.org/entity/{tail}";
+	  ]
+  ].

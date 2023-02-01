@@ -1,3 +1,5 @@
+import urllib.parse
+
 class Triple:
     def __init__(self, head, predicate, tail, dataset=""):
         self.head = head
@@ -6,10 +8,13 @@ class Triple:
         self.dataset = dataset
 
     def getCSVRow(self, withDataset=True):
+        encodedHead = urllib.parse.quote(self.head.encode('utf8'))
+        encodedPredicate = urllib.parse.quote(self.predicate.encode('utf8'))
+        encodedTail = urllib.parse.quote(self.tail.encode('utf8'))
         if withDataset:
-            return "{},{},{},{}".format(self.head, self.predicate, self.tail, self.dataset) 
+            return "{},{},{},{}".format(encodedHead, encodedPredicate, encodedTail, self.dataset) 
         else:
-            return "{},{},{}".format(self.head, self.predicate, self.tail) 
+            return "{},{},{}".format(encodedHead, encodedPredicate, encodedTail) 
     
     def __hash__(self):
         return hash(repr(self))

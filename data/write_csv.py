@@ -9,7 +9,7 @@ folders = [f for f in os.listdir(current_directory) if os.path.isdir(current_dir
 def readTriplesFromFolder(folder):
     triples = set()
     for dataset in "train", "valid", "test":
-        with open(current_directory + folder + "/" + dataset + ".txt", "r") as reader:
+        with open(current_directory + folder + "/original/" + dataset + ".txt", "r") as reader:
             for line in reader.readlines():
                 column1, column2, column3 = line.replace("\n", "").split("\t")
                 if folder == "DBPedia50":
@@ -17,15 +17,15 @@ def readTriplesFromFolder(folder):
                     triple = Triple(column1, column3, column2, dataset)
                 else:
                     triple = Triple(column1, column2, column3, dataset)
-                if triple in triples:
-                    print("Duplicate triple found in {}".format(folder))
                 triples.add(triple)
     
     return triples
 
 def writeCSVFiles(folder, merged_triples):
+    if not os.path.exists(current_directory + folder + "/CSVFiles"):
+        os.makedirs(current_directory + folder + "/CSVFiles")
     # Write merged file
-    with open(current_directory + folder + "/merged.csv", "w") as writer:
+    with open(current_directory + folder + "/CSVFiles/merged.csv", "w") as writer:
         writer.write("head,predicate,tail,dataset\n")
         for i, triple in enumerate(merged_triples):
             if i == len(merged_triples) - 1:
@@ -35,7 +35,7 @@ def writeCSVFiles(folder, merged_triples):
     
     # Write each CSV for train, valid and test
     for split in "train", "valid", "test":
-        with open(current_directory + folder + "/" + split + ".csv", "w") as writer:
+        with open(current_directory + folder + "/CSVFiles/" + split + ".csv", "w") as writer:
             writer.write("head,predicate,tail\n")
             for i, triple in enumerate(merged_triples):
                 if triple.dataset != split:
