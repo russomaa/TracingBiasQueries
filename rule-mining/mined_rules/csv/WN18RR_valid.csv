@@ -1,0 +1,2 @@
+Rule,Head Coverage,Std Confidence,PCA Confidence,Positive Examples,Body size,PCA Body size,Functional variable
+?b  <http://bias.org/vocab/_derivationally_related_form>  ?a   => ?a  <http://bias.org/vocab/_derivationally_related_form>  ?b,0.033395176,0.033395176,0.395604396,36,1078,91,?b
