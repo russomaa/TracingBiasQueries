@@ -1,0 +1,30 @@
+SELECT ?entitiesTotal ?entitiesTrain ?entitiesValidation ?entitiesTest WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+    SELECT (COUNT(DISTINCT ?entity) AS ?entitiesTotal) WHERE {
+      { ?entity ?p1 ?o1. }
+      UNION
+      { ?s2 ?p2 ?entity. }
+    }
+  }
+  GRAPH <http://bias.org/training-graph> {
+    SELECT (COUNT(DISTINCT ?entity) AS ?entitiesTrain) WHERE {
+      { ?entity ?p1 ?o1. }
+      UNION
+      { ?s2 ?p2 ?entity. }
+    }
+  }
+  GRAPH <http://bias.org/test-graph> {
+    SELECT (COUNT(DISTINCT ?entity) AS ?entitiesTest) WHERE {
+      { ?entity ?p1 ?o1. }
+      UNION
+      { ?s2 ?p2 ?entity. }
+    }
+  }
+  GRAPH <http://bias.org/validation-graph> {
+    SELECT (COUNT(DISTINCT ?entity) AS ?entitiesValidation) WHERE {
+      { ?entity ?p1 ?o1. }
+      UNION
+      { ?s2 ?p2 ?entity. }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Overview of dataset (count of triples across datasets, total relations, total entities)
+select ?totalEntities ?totalRelations ?tripleCountTotal ?tripleCountTraining ?tripleCountValidation ?tripleCountTest
+where { 
+    GRAPH <http://www.ontotext.com/explicit> {select (COUNT(distinct ?p) AS ?totalRelations) where { ?s ?p ?o} }
+    GRAPH <http://www.ontotext.com/explicit> {SELECT (COUNT(DISTINCT ?entity) AS ?totalEntities) WHERE { { ?entity ?p1 ?o1 . } UNION { ?s2 ?p2 ?entity . } }}
+    GRAPH <http://www.ontotext.com/explicit> {select (COUNT(*) AS ?tripleCountTotal) where { ?s ?p ?o} }
+    GRAPH <http://bias.org/training-graph> {select (COUNT(*) AS ?tripleCountTraining) where { ?s ?p ?o} }
+    GRAPH <http://bias.org/validation-graph> {select (COUNT(*) AS ?tripleCountValidation) where { ?s ?p ?o} }
+    GRAPH <http://bias.org/test-graph> {select (COUNT(*) AS ?tripleCountTest) where { ?s ?p ?o} } 
+} 
+
