@@ -1,0 +1,3 @@
+SELECT ?headEntity (COUNT(*) AS ?occurrences) WHERE { GRAPH <http://www.ontotext.com/explicit> { { ?headEntity ?p1 ?o1. } } }
+GROUP BY ?headEntity
+ORDER BY DESC (?occurrences)

@@ -1,0 +1,12 @@
+SELECT ?entity (COUNT(*) AS ?tripleCount) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+    { ?entity ?p1 ?o1. }
+    UNION
+    {
+      ?s2 ?p2 ?entity.
+      FILTER(?s2 != ?entity)
+    }
+  }
+}
+GROUP BY ?entity
+ORDER BY DESC (?tripleCount)

@@ -1,0 +1,7 @@
+SELECT ?relation (COUNT(*) AS ?tripleCount) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+        ?s ?relation ?o
+  }
+}
+GROUP BY ?relation
+ORDER BY DESC (?tripleCount)
