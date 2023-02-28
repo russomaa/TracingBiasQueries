@@ -1,0 +1,13 @@
+# What head tends to be among the answers to questions of form <?, r, t> (in at least 50% of cases with distinct relation-tail combos)
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?relation ?option ?tailEntities (COUNT(DISTINCT ?t) AS ?tailEntitiesForOption) ((COUNT(DISTINCT ?t)) / (xsd:float(?tailEntities)) AS ?optionRepresented) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+    {
+      SELECT ?relation (COUNT(DISTINCT ?tail) AS ?tailEntities) WHERE { ?head ?relation ?tail. }
+      GROUP BY ?relation
+    }
+    ?option ?relation ?t.
+  }
+}
+GROUP BY ?relation ?option ?tailEntities
+HAVING (((COUNT(DISTINCT ?t)) / (xsd:float(?tailEntities))) > "0.5"^^xsd:decimal)

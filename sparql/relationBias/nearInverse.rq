@@ -1,0 +1,16 @@
+# What relations are near-inverse to others? (based on inverseScore)
+# inverseScore(r,s) is defined as the fraction of head-tail combinations in r that appear in s with head and tail reversed
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?relation (?s AS ?inverseRelation) ((COUNT(*)) / (xsd:float(?tripleCount)) AS ?inverseScore) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+    {
+      SELECT ?relation (COUNT(*) AS ?tripleCount) WHERE { ?head ?relation ?tail. }
+      GROUP BY ?relation
+    }
+    ?h ?relation ?t .
+    ?t ?s ?h .
+    FILTER(?s != ?relation)
+  }
+}
+GROUP BY ?relation ?s ?tripleCount
+HAVING (((COUNT(*)) / (xsd:float(?tripleCount))) > "0.5"^^xsd:decimal)

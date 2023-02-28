@@ -1,3 +1,4 @@
+# How many entities across train, test and validation set?
 SELECT ?entitiesTotal ?entitiesTrain ?entitiesValidation ?entitiesTest WHERE {
   GRAPH <http://www.ontotext.com/explicit> {
     SELECT (COUNT(DISTINCT ?entity) AS ?entitiesTotal) WHERE {

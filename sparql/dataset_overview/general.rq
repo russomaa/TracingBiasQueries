@@ -1,4 +1,4 @@
-# Overview of dataset (count of triples across datasets, total relations, total entities)
+# Complete dataset overview (How many triples, relations and entities across datasets?)
 select ?totalEntities ?totalRelations ?tripleCountTotal ?tripleCountTraining ?tripleCountValidation ?tripleCountTest
 where { 
     GRAPH <http://www.ontotext.com/explicit> {select (COUNT(distinct ?p) AS ?totalRelations) where { ?s ?p ?o} }
