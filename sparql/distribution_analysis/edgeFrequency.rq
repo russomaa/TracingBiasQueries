@@ -1,0 +1,8 @@
+# How many edges exist for every relation?
+SELECT ?relation (COUNT(*) AS ?edgeFrequency) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+        ?s ?relation ?o
+  }
+}
+GROUP BY ?relation
+ORDER BY DESC (?edgeFrequency)

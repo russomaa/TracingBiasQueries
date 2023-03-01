@@ -1,0 +1,4 @@
+# What is the in-degree of every entity?
+SELECT ?entity (COUNT(*) AS ?inDegree) WHERE { GRAPH <http://www.ontotext.com/explicit> { { ?s1 ?p1 ?entity. } } }
+GROUP BY ?entity
+ORDER BY DESC (?inDegree)

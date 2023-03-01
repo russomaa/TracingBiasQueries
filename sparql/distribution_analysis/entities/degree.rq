@@ -1,4 +1,5 @@
-SELECT ?entity (COUNT(*) AS ?tripleCount) WHERE {
+# What is the combined degree of every entity (in + out degree)
+SELECT ?entity (COUNT(*) AS ?degree) WHERE {
   GRAPH <http://www.ontotext.com/explicit> {
     { ?entity ?p1 ?o1. }
     UNION
@@ -9,4 +10,4 @@ SELECT ?entity (COUNT(*) AS ?tripleCount) WHERE {
   }
 }
 GROUP BY ?entity
-ORDER BY DESC (?tripleCount)
+ORDER BY DESC (?degree)
