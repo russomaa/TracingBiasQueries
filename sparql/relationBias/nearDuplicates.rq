@@ -3,6 +3,7 @@
 # The metric is therefore sensitive to the order of parameters (similarityScore
 # (r, s) != similarityScore(s, r))
 # --> Bias type 3 in Rossi paper
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?relation (?s AS ?similarRelation) ((COUNT(*)) / (xsd:float(?tripleCount)) AS ?similarityScore) WHERE {
   GRAPH <http://www.ontotext.com/explicit> {
     {
