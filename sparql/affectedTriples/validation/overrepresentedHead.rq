@@ -1,4 +1,4 @@
-# How many test triples are affected by relations that have an overrepresented head ( > 50% of all mentions) in the training graph
+# How many validation triples are affected by relations that have an overrepresented head ( > 50% of all mentions) in the training graph
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT (COUNT(*) AS ?affectedTestTriples) WHERE {
   GRAPH <http://bias.org/training-graph> {

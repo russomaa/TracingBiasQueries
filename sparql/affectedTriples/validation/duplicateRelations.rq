@@ -1,4 +1,4 @@
-# How many test triples are affected by relations in the training set that have a jaccard score > 0.5
+# How many validation triples are affected by relations in the training set that have a jaccard score > 0.5
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT (COUNT(*) AS ?affectedTestTriples) WHERE {
   GRAPH <http://bias.org/training-graph> {
