@@ -1,0 +1,18 @@
+# How many triples are affected by relations that have tend to have a default answer in the tail (for > 50% of all head entities)
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (SUM(?tripleCount) AS ?affectedTriples) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+    {
+      SELECT distinct ?relation ?tripleCount WHERE {
+    {
+      SELECT ?relation (COUNT(DISTINCT ?head) AS ?headEntities) (COUNT(*) AS ?tripleCount) WHERE { ?head ?relation ?tail. }
+      GROUP BY ?relation
+    }
+    ?h ?relation ?option.
+  
+}
+GROUP BY ?relation ?option ?headEntities ?tripleCount
+HAVING (((COUNT(DISTINCT ?h)) / (xsd:float(?headEntities))) > "0.5"^^xsd:decimal)
+    }
+  }
+}

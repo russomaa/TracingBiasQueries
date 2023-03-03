@@ -1,0 +1,29 @@
+# How many test triples are affected by relations that have an inverse jaccard score > 0.5 in the training graph
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (COUNT(*) AS ?affectedTestTriples) WHERE {
+  GRAPH <http://bias.org/training-graph> {
+    SELECT ?r ?tripleCountR ?tripleCountS WHERE {
+    {
+      SELECT ?r (COUNT(*) AS ?tripleCountR) WHERE { ?head ?r ?tail. }
+      GROUP BY ?r
+    }
+    {
+      SELECT ?s (COUNT(*) AS ?tripleCountS) WHERE { ?head ?s ?tail. }
+      GROUP BY ?s
+    }
+        {
+            SELECT ?h ?r ?s ?t WHERE {
+                ?h ?r ?t .
+      			?t ?s ?h .
+    			FILTER(?s != ?r)
+            }
+        }
+    
+}
+GROUP BY ?r ?s ?tripleCountR ?tripleCountS
+HAVING ((COUNT(*)) / (xsd:float(?tripleCountR + ?tripleCountS - COUNT(*))) > 0.5)
+  }
+    GRAPH <http://bias.org/validation-graph> {
+        ?h ?r ?t .
+    }
+}

@@ -13,7 +13,7 @@
   a rr:TriplesMap;
 
   rml:logicalSource [
-	rml:source "/Users/sammys/Development/Bachelor-Arbeit/BiasLPBenchmark/data/DBPedia50/CSVFiles/merged.csv";
+	rml:source "/Users/sammys/Desktop/Research/BiasLPBenchmark/data/DBPedia50/CSVFiles/merged.csv";
     rml:referenceFormulation ql:CSV
   ];
 

@@ -1,0 +1,20 @@
+# How many test triples are affected by relations that have an overrepresented tail ( > 50% of all mentions) in the training graph
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (COUNT(*) AS ?affectedTestTriples) {
+  GRAPH <http://bias.org/training-graph> {
+    {
+      SELECT ?relation ?tail ?tripleCount WHERE {
+    {
+      SELECT ?relation (COUNT(*) AS ?tripleCount) WHERE { ?s ?relation ?o. }
+      GROUP BY ?relation
+    }
+    ?head ?relation ?tail.
+}
+GROUP BY ?relation ?tail ?tripleCount
+HAVING (((COUNT(*)) / (xsd:float(?tripleCount))) > "0.5"^^xsd:decimal)
+    }
+  }
+    GRAPH <http://bias.org/test-graph> {
+        ?h ?relation ?t .
+    }
+}

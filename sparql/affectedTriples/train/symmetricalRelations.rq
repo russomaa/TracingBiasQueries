@@ -1,0 +1,17 @@
+# How many training triples are affected by relations that have a symmetry score > 0.75
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (SUM(?tripleCount) AS ?affectedTriples) WHERE {
+  GRAPH <http://bias.org/training-graph> {
+    SELECT ?relation ?tripleCount ((COUNT(*)) / (xsd:float(?tripleCount)) AS ?symmetryScore) WHERE {
+
+    {
+      SELECT ?relation (COUNT(*) AS ?tripleCount) WHERE { ?head ?relation ?tail. }
+      GROUP BY ?relation
+    }
+    ?h ?relation ?t .
+    ?t ?relation ?h .
+}
+GROUP BY ?relation ?tripleCount
+HAVING (((COUNT(*)) / (xsd:float(?tripleCount)) > 0.75))
+  }
+}

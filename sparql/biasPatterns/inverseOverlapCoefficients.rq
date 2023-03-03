@@ -1,0 +1,25 @@
+# What are the inverse overlap coefficients between every relation r with every other relation s?
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?r (?s AS ?similarRelation) ?tripleCountR ?tripleCountS ?smallerSize ((COUNT(*)) / (xsd:float(?smallerSize)) AS ?inverseOverlapCoefficient) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+    {
+      SELECT ?r (COUNT(*) AS ?tripleCountR) WHERE { ?head ?r ?tail. }
+      GROUP BY ?r
+    }
+    {
+      SELECT ?s (COUNT(*) AS ?tripleCountS) WHERE { ?head ?s ?tail. }
+      GROUP BY ?s
+    }
+        {
+            SELECT ?h ?r ?s ?t WHERE {
+                ?h ?r ?t .
+      			?t ?s ?h .
+    			FILTER(?s != ?r)
+            }
+        }
+      BIND( IF( ?tripleCountR < ?tripleCountS, ?tripleCountR, ?tripleCountS ) AS ?smallerSize)
+    
+  }
+}
+GROUP BY ?r ?s ?tripleCountR ?tripleCountS ?smallerSize
+ORDER BY DESC(?inverseOverlapCoefficient)

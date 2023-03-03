@@ -1,4 +1,4 @@
-# What head tends to be among the answers to questions of form <?, r, t> (in at least 50% of cases with distinct relation-tail combos)
+# What head tends to be among the answers to questions of form <?, r, t> (in more than 50% of cases with distinct relation-tail combos)
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?relation ?option ?tailEntities (COUNT(DISTINCT ?t) AS ?tailEntitiesForOption) ((COUNT(DISTINCT ?t)) / (xsd:float(?tailEntities)) AS ?optionRepresented) WHERE {
   GRAPH <http://www.ontotext.com/explicit> {

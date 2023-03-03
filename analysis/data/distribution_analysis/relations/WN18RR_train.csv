@@ -1,0 +1,12 @@
+p,percentage
+http://bias.org/vocab/_hypernym,0.400714
+http://bias.org/vocab/_derivationally_related_form,0.34220073
+http://bias.org/vocab/_member_meronym,0.08524212
+http://bias.org/vocab/_has_part,0.055461507
+http://bias.org/vocab/_synset_domain_topic_of,0.03588415
+http://bias.org/vocab/_instance_hypernym,0.03363851
+http://bias.org/vocab/_also_see,0.014959406
+http://bias.org/vocab/_verb_group,0.013105314
+http://bias.org/vocab/_member_of_domain_region,0.010629355
+http://bias.org/vocab/_member_of_domain_usage,0.007243623
+http://bias.org/vocab/_similar_to,9.212875E-4

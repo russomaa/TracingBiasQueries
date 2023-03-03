@@ -1,0 +1,18 @@
+# How many training triples are affected by relations that have tend to have a default answer in the head (for > 50% of all tail entities)
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (SUM(?tripleCount) AS ?affectedTriples) WHERE {
+  GRAPH <http://bias.org/training-graph> {
+    {
+      SELECT distinct ?relation ?tripleCount WHERE {
+    {
+      SELECT ?relation (COUNT(DISTINCT ?tail) AS ?tailEntities) (COUNT(*) AS ?tripleCount) WHERE { ?head ?relation ?tail. }
+      GROUP BY ?relation
+    }
+    ?option ?relation ?t.
+  
+}
+GROUP BY ?relation ?option ?tailEntities ?tripleCount
+HAVING (((COUNT(DISTINCT ?t)) / (xsd:float(?tailEntities))) > "0.5"^^xsd:decimal)
+    }
+  }
+}

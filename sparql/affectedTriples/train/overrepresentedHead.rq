@@ -1,0 +1,18 @@
+# How many training triples are affected by relations that have an overrepresented head ( > 50% of all mentions)
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (SUM(?tripleCount) AS ?affectedTriples) WHERE {
+  GRAPH <http://bias.org/training-graph> {
+    {
+      SELECT ?head ?relation  (COUNT(*) AS ?filteredTripleCount) ?tripleCount (xsd:float((COUNT(*)) / (xsd:float(?tripleCount))) AS ?representation) WHERE {
+    {
+      SELECT ?relation (COUNT(*) AS ?tripleCount) WHERE { ?s ?relation ?o. }
+      GROUP BY ?relation
+    }
+    ?head ?relation ?tail.
+  
+}
+GROUP BY ?relation ?head ?tripleCount
+HAVING (((COUNT(*)) / (xsd:float(?tripleCount))) > "0.5"^^xsd:decimal)
+    }
+  }
+}
