@@ -1,9 +1,9 @@
 # Bias in Link Prediction Benchmarks
 
 <p float="left">
-  <img src="analysis/output/network_analysis/visualizations/FB15k-237.png" width="330" />
-  <img src="analysis/output/pattern_analysis/YAGO3-10.png" width="225" /> 
-  <img src="analysis/output/relation_distribution/YAGO3-10.png" width="270" />
+  <img src="analysis/output/network_analysis/visualizations/FB15k-237.png" width="310" />
+  <img src="analysis/output/pattern_analysis/YAGO3-10.png" width="210" /> 
+  <img src="analysis/output/relation_distribution/YAGO3-10.png" width="250" />
 </p>
 
 This repository contains all the work needed to characterize the most benchmarks used for link prediction:
@@ -60,15 +60,15 @@ For sample selection bias, we reused patterns defined in the work of [Rossi et a
 Using these patterns, we queried the number of bias-affected triples for each split in every dataset with SPARQL. The queries can be found in the folder `sparql/affectedTriples`. The following plots provide a good overview of bias in each benchmark:
 
 <p float="left">
-  <img src="analysis/output/pattern_analysis/FB15k.png" width="250" />
-  <img src="analysis/output/pattern_analysis/FB15k-237.png" width="250" />
-  <img src="analysis/output/pattern_analysis/WN18.png" width="250" />
-  <img src="analysis/output/pattern_analysis/WN18RR.png" width="250" />
+  <img src="analysis/output/pattern_analysis/FB15k.png" width="200" />
+  <img src="analysis/output/pattern_analysis/FB15k-237.png" width="200" />
+  <img src="analysis/output/pattern_analysis/WN18.png" width="200" />
+  <img src="analysis/output/pattern_analysis/WN18RR.png" width="200" />
 </p>
 <p float="left">
-  <img src="analysis/output/pattern_analysis/YAGO3-10.png" width="250" />
-  <img src="analysis/output/pattern_analysis/Wikidata5M.png" width="250" />
-  <img src="analysis/output/pattern_analysis/DBpedia50k.png" width="250" />
+  <img src="analysis/output/pattern_analysis/YAGO3-10.png" width="200" />
+  <img src="analysis/output/pattern_analysis/Wikidata5M.png" width="200" />
+  <img src="analysis/output/pattern_analysis/DBpedia50k.png" width="200" />
 </p>
 
 Following observations can be made:
