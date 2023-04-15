@@ -1,0 +1,15 @@
+select (AVG(?RD) AS ?averageRD) where { 
+	{
+    SELECT ?entity (COUNT(*) AS ?RD) WHERE {
+  GRAPH <http://www.ontotext.com/explicit> {
+        { SELECT distinct ?entity ?p1 WHERE {?entity ?p1 ?o1.} }
+    UNION
+    {
+      { SELECT distinct ?entity ?p1 WHERE {?s2 ?p1 ?entity.} }
+      FILTER(?s2 != ?entity)
+    }
+  }
+}
+GROUP BY ?entity
+    }
+} 

@@ -1,6 +1,6 @@
 # What tail tends to be among the answers to questions of form <h, r, ?> (in more than 50% of cases with distinct head-relation combos)
 SELECT ?relation ?option ?headEntities (COUNT(DISTINCT ?h) AS ?headEntitiesForOption) ((COUNT(DISTINCT ?h)) / (xsd:float(?headEntities)) AS ?optionRepresented) WHERE {
-  GRAPH <http://www.ontotext.com/explicit> {
+  GRAPH <http://bias.org/training-graph> {
     {
       SELECT ?relation (COUNT(DISTINCT ?head) AS ?headEntities) WHERE { ?head ?relation ?tail. }
       GROUP BY ?relation

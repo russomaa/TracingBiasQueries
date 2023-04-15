@@ -46,10 +46,11 @@ def writeCSVFiles(folder, merged_triples):
                     writer.write(triple.getCSVRow(withDataset=False) + "\n")
     
             
-
+print("Start writing CSV files...")
 for folder in folders:
     try:
         triples = readTriplesFromFolder(folder)
+        writeCSVFiles(folder, triples)
     except:
         continue
-    writeCSVFiles(folder, triples)
+print("Finished writing!")

@@ -1,8 +1,0 @@
-BASE = "https://raw.githubusercontent.com/ZhenfengLei/KGDatasets/master/DBpedia50"
-TEST_URL = f"{BASE}/test.txt"
-TRAIN_URL = f"{BASE}/train.txt"
-VALID_URL = f"{BASE}/valid.txt"
-
-From PyKeen too
-
-Note: This dataset seems to contain duplicate triples across train, validation and test subsets

@@ -1,0 +1,9 @@
+# How often does relationship type occur in facts (in percent)?
+SELECT ?p (?edgeFrequency / (xsd:float(?tripleCountTotal)) AS ?percentage) WHERE {
+  {
+    SELECT ?p (COUNT(*) AS ?edgeFrequency) WHERE { GRAPH <http://www.ontotext.com/explicit> { ?s ?p ?o. } }
+    GROUP BY ?p
+  }
+  GRAPH <http://www.ontotext.com/explicit> { SELECT (COUNT(*) AS ?tripleCountTotal) WHERE { ?s ?p ?o. } }
+}
+ORDER BY DESC (?percentage)

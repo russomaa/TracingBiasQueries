@@ -18,13 +18,13 @@
   ];
 
   rr:subjectMap [
-  rr:template "http://bias.org/entity/{head}";
+    rr:template "http://bias.org/entity/{head}";
   ];
   
   rr:predicateObjectMap [
 	  rr:predicateMap [
-  rr:template "http://bias.org/vocab/{predicate}";
-  ];
+      rr:template "http://bias.org/vocab/{predicate}";
+    ];
 	  rr:objectMap [
 		  rr:template "http://bias.org/entity/{tail}";
 	  ]

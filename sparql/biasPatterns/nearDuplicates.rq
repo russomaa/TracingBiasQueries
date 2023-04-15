@@ -1,0 +1,25 @@
+# What are the Jaccard scores between every relation r with every other relation s?
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?r (?s AS ?similarRelation) ?tripleCountR ?tripleCountS ((COUNT(*)) / (xsd:float(?tripleCountR + ?tripleCountS - COUNT(*))) AS ?jaccardScore) WHERE {
+  GRAPH <http://bias.org/training-graph> {
+    {
+      SELECT ?r (COUNT(*) AS ?tripleCountR) WHERE { ?head ?r ?tail. }
+      GROUP BY ?r
+    }
+    {
+      SELECT ?s (COUNT(*) AS ?tripleCountS) WHERE { ?head ?s ?tail. }
+      GROUP BY ?s
+    }
+        {
+            SELECT ?h ?r ?s ?t WHERE {
+                ?h ?r ?t;
+      				?s ?t.
+    			FILTER(?s != ?r)
+            }
+        }
+    
+  }
+}
+GROUP BY ?r ?s ?tripleCountR ?tripleCountS
+HAVING((COUNT(*)) / (xsd:float(?tripleCountR + ?tripleCountS - COUNT(*))) > 0.5)
+ORDER BY DESC(?jaccardScore)

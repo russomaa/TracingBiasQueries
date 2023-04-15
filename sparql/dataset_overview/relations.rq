@@ -1,7 +1,13 @@
 # How many relations across train, test and validation set?
 SELECT ?relationsTotal ?relationsTrain ?relationsValidation ?relationsTest WHERE {
-  GRAPH <http://www.ontotext.com/explicit> { SELECT (COUNT(DISTINCT ?p) AS ?relationsTotal) WHERE { ?s ?p ?o. } }
-  GRAPH <http://bias.org/training-graph> { SELECT (COUNT(DISTINCT ?p) AS ?relationsTrain) WHERE { ?s ?p ?o. } }
-  GRAPH <http://bias.org/test-graph> { SELECT (COUNT(DISTINCT ?p) AS ?relationsValidation) WHERE { ?s ?p ?o. } }
-  GRAPH <http://bias.org/validation-graph> { SELECT (COUNT(DISTINCT ?p) AS ?relationsTest) WHERE { ?s ?p ?o. } }
+  GRAPH <http://www.ontotext.com/explicit> { 
+    SELECT (COUNT(DISTINCT ?p) AS ?relationsTotal) WHERE { ?s ?p ?o. } }
+  GRAPH <http://bias.org/training-graph> { SELECT (COUNT(DISTINCT ?p) AS ?relationsTrain) WHERE { ?s ?p ?o. } 
+  }
+  GRAPH <http://bias.org/test-graph> { 
+    SELECT (COUNT(DISTINCT ?p) AS ?relationsValidation) WHERE { ?s ?p ?o. } 
+    }
+  GRAPH <http://bias.org/validation-graph> { 
+    SELECT (COUNT(DISTINCT ?p) AS ?relationsTest) WHERE { ?s ?p ?o. } 
+    }
 }
