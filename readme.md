@@ -1,4 +1,5 @@
 # Bias in Link Prediction Benchmarks
+**We analyze the following benchmark datasets in this work: FB15k, FB15k-237, WN18, WN18RR, YAGO3-10, Wikidata5M and DBpedia50k**
 
 <p float="left">
   <img src="analysis/output/network_analysis/visualizations/FB15k-237.png" width="310" />
@@ -14,15 +15,6 @@ This repository contains all the work needed to characterize the most benchmarks
 - Mappings for generating N-Triple files and to upload benchmark data to a knowledge graph
 - SPARQL queries for analyzing bias patterns and other irregularities
 
-We analyze the following benchmark datasets in this work:
-
-- FB15k
-- FB15k-237
-- WN18
-- WN18RR
-- YAGO3-10
-- Wikidata5M
-- DBpedia50k
 
 ## Data files
 
@@ -112,6 +104,6 @@ We learn the embeddings using the TransE implementation found in the Python libr
 
 ## How to generate N-Triple files for each dataset?
 
-1. Install the RDFizer using `python3 -m pip install rdfizer`
+1. Install the [RDFizer](https://github.com/SDM-TIB/SDM-RDFizer) using `python3 -m pip install rdfizer`
 2. `cd mappings`
 3. `bash generate_triple_files.sh`
