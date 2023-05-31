@@ -7,7 +7,7 @@ import pandas as pd
 from constants import TrainingDataset
 import os
 
-
+print("Performing prediction analysis on learned models...")
 # Stores ranks for every dataset
 ranks_for_dataset = defaultdict()
 datasets = TrainingDataset.FB15k, TrainingDataset.FB15k_237, TrainingDataset.WN18, TrainingDataset.WN18RR

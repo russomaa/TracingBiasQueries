@@ -1,5 +1,5 @@
 from execute_query import execute_SPARQL_query
-from reproducibility.constants import DATASETS, SPLITS, BIAS_PATTERNS, Dataset
+from constants import DATASETS, SPLITS, BIAS_PATTERNS, Dataset
 import pandas as pd
 from io import StringIO
 import os

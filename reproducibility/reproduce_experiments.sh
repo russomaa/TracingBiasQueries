@@ -1,4 +1,4 @@
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 
 # Run Python script for populating data files for all datasets
 python3 reproducibility/collect_data.py

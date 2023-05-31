@@ -23,6 +23,7 @@ for dataset in config.keys():
     else:
          continue
     current_config = config[dataset]
+    print("Training model for {}".format(dataset))
     model = ScoringBasedEmbeddingModel(k=current_config.getint("dimensions"),
                                     eta=current_config.getint("eta"),
                                     scoring_type='TransE')
