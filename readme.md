@@ -92,8 +92,15 @@ Following observations can be made:
 - We further notice that this pattern occurs at a ~100% higher rate than in the input data. This behavior reinforces the idea that the model is biased towards learning these patterns
 
 ## Reproducing the experiments
+First make sure to have correctly installed the library AmpliGraph with version 2.0.0.
 
-We learn the embeddings using the TransE implementation found in the Python library AmpliGraph (version 2.0.0). We obtain rankings for test triples by training the models FB15k, FB15k-237, WN18 and WN18RR in the notebooks under `experiments/learn_embeddings`. The hyperparameters found [here](https://docs.ampligraph.org/en/latest/experiments.html) were reused for our experiments. 
+To reproduce all of our experiments you simply need to start the reproducibility script using ´´´bash reproducibility/reproduce_experiments.sh´´´.
+
+The script will automatically run the whole pipeline from calling SPARQL endpoints for the dataset analysis on an input level to learning embeddings and finally generating the shown plots.
+
+The hyperparameters from [here](https://docs.ampligraph.org/en/latest/experiments.html) were reused for our experiments. 
+
+The Python version used is 3.8
 
 <p float="left">
   <img src="experiments/hyperparameters.png" width="500" />

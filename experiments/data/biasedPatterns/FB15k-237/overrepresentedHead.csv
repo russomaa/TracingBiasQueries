@@ -1,0 +1,8 @@
+head,relation,filteredTripleCount,tripleCount,representation
+http://bias.org/entity/m/04ztj,http://bias.org/vocab/people/marriage_union_type/unions_of_this_type./people/marriage/location_of_ceremony,405,417,0.971223
+http://bias.org/entity/m/09c7w0,http://bias.org/vocab/location/country/second_level_divisions,335,463,0.7235421
+http://bias.org/entity/m/085h1,http://bias.org/vocab/user/ktrueman/default_domain/international_organization/member_states,117,179,0.65363127
+http://bias.org/entity/m/03m6t5,http://bias.org/vocab/base/americancomedy/celebrity_impressionist/celebrities_impersonated,84,121,0.6942149
+http://bias.org/entity/m/0g2c8,http://bias.org/vocab/award/hall_of_fame/inductees./award/hall_of_fame_induction/inductee,79,154,0.512987
+http://bias.org/entity/m/03gfvsz,http://bias.org/vocab/broadcast/content/artist,52,102,0.50980395
+http://bias.org/entity/m/043q4d,http://bias.org/vocab/tv/non_character_role/tv_regular_personal_appearances./tv/tv_regular_personal_appearance/person,50,90,0.5555556

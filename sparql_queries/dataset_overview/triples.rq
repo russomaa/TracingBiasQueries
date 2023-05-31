@@ -1,6 +1,6 @@
 # How many triples are there in each split?
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-SELECT ?tripleCountTotal ?tripleCountTraining ((?tripleCountTraining/xsd:float(?tripleCountTotal)*100) AS ?trainingPercent) ?tripleCountValidation ((?tripleCountValidation/xsd:float(?tripleCountTotal)*100) AS ?validatinoPercent) ?tripleCountTest ((?tripleCountTest/xsd:float(?tripleCountTotal)*100) AS ?testPercent)
+SELECT ?tripleCountTotal ?tripleCountTraining ((?tripleCountTraining/xsd:float(?tripleCountTotal)*100) AS ?trainingPercent) ?tripleCountValidation ((?tripleCountValidation/xsd:float(?tripleCountTotal)*100) AS ?validationPercent) ?tripleCountTest ((?tripleCountTest/xsd:float(?tripleCountTotal)*100) AS ?testPercent)
 WHERE { 
     GRAPH <http://www.ontotext.com/explicit> {SELECT (COUNT(*) AS ?tripleCountTotal) WHERE { ?s ?p ?o} }
     GRAPH <http://bias.org/training-graph> {SELECT (COUNT(*) AS ?tripleCountTraining) WHERE { ?s ?p ?o} }
