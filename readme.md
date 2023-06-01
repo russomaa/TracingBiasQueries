@@ -4,7 +4,7 @@
 <p float="left">
   <img src="analysis/output/network_analysis/visualizations/FB15k-237.png" width="310" />
   <img src="analysis/output/pattern_analysis/YAGO3-10.png" width="210" /> 
-  <img src="analysis/output/relation_distribution/YAGO3-10.png" width="250" />
+  <img src="analysis/output/relation_distribution/YAGO3-10_combined.png" width="250" />
 </p>
 
 This repository contains all the work needed to characterize the most benchmarks used for link prediction:
@@ -74,16 +74,16 @@ Following observations can be made:
 To understand how these bias types affect prediction results we then tried to explain each correct prediction (based on H@k metric) by one or more of our bias types on a learned TransE model. If no explanation could be found the correct prediction is assigned to the bucket *unknown*. The jupyter notebook for bucketing predictions can be found under `experiments/prediction_analysis.ipynb`. 
 
 <p float="left">
-  <img src="analysis/output/prediction_analysis/fb15k_head.png" width="200" />
-  <img src="analysis/output/prediction_analysis/fb15k_tail.png" width="200" />
-  <img src="analysis/output/prediction_analysis/fb15k237_head.png" width="200" />
-  <img src="analysis/output/prediction_analysis/fb15k237_tail.png" width="200" />
+  <img src="analysis/output/prediction_analysis/FB15k_head.png" width="200" />
+  <img src="analysis/output/prediction_analysis/FB15k_tail.png" width="200" />
+  <img src="analysis/output/prediction_analysis/FB15k-237_head.png" width="200" />
+  <img src="analysis/output/prediction_analysis/FB15k-237_tail.png" width="200" />
 </p>
 <p float="left">
-  <img src="analysis/output/prediction_analysis/wn18_head.png" width="200" />
-  <img src="analysis/output/prediction_analysis/wn18_tail.png" width="200" />
-  <img src="analysis/output/prediction_analysis/wn18rr_head.png" width="200" />
-  <img src="analysis/output/prediction_analysis/wn18rr_tail.png" width="200" />
+  <img src="analysis/output/prediction_analysis/WN18_head.png" width="200" />
+  <img src="analysis/output/prediction_analysis/WN18_tail.png" width="200" />
+  <img src="analysis/output/prediction_analysis/WN18RR_head.png" width="200" />
+  <img src="analysis/output/prediction_analysis/WN18RR_tail.png" width="200" />
 </p>
 
 Following observations can be made:
