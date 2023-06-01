@@ -94,7 +94,7 @@ Following observations can be made:
 ## Reproducing the experiments
 First make sure to have correctly installed the library AmpliGraph with version 2.0.0.
 
-To reproduce all of our experiments you simply need to start the reproducibility script using ´´´bash reproducibility/reproduce_experiments.sh´´´.
+To reproduce all of our experiments you simply need to start the reproducibility script using `bash reproducibility/reproduce_experiments.sh`.
 
 The script will automatically run the whole pipeline from calling SPARQL endpoints for the dataset analysis on an input level to learning embeddings and finally generating the shown plots.
 
