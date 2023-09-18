@@ -1,8 +1,0 @@
-dataset,duplicateRelations,inverseRelations,symmetricalRelations,defaultTailAnswers,defaultHeadAnswers,overrepresentedTail,overrepresentedHead
-FB15k,8866,49577,5483,17024,14085,5016,1854
-FB15k-237,130,26,610,8251,2975,3091,179
-WN18,0,3828,1116,37,26,0,0
-WN18RR,0,0,1116,0,26,0,0
-YAGO3-10,3165,0,19,340,2,297,0
-Wikidata5M,0,94,174,301,1,174,0
-DBpedia50k,678,264,99,1186,181,961,37

@@ -1,8 +1,0 @@
-dataset,relationsTotal,relationsTrain,relationsValidation,relationsTest
-FB15k,1345,1345,961,916
-FB15k-237,237,237,224,223
-WN18,18,18,18,18
-WN18RR,11,11,11,11
-YAGO3-10,37,37,34,33
-Wikidata5M,822,822,211,217
-DBpedia50k,365,351,288,103
